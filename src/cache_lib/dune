@@ -1,3 +1,4 @@
 (library
  (name Cache_lib)
- (modules cache memory))
+ (libraries IO_lib Replacement_lib)
+ (modules cache memory memory_sig))
