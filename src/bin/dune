@@ -1,4 +1,4 @@
 (executable
  (public_name Cache_Sim)
  (name main)
- (libraries Cache_Sim))
+ (libraries Cache_lib IO_lib))
