@@ -4,15 +4,16 @@ type cacheline = {
   valid : bool;
 }
 
-type shithead = {
+type mem = {
   cache : cacheline array array;
   associativity : int;
 }
 
-module Memory_int (R : Replacement_lib.Replacement_sig.REPLACEMENT_STRATEGY) : Memory_sig.MEMORY_SIG with type 'a t = shithead = struct
-  type 'a t = shithead
+module Memory_int (R : Replacement_lib.Replacement_sig.REPLACEMENT_STRATEGY) : Memory_sig.MEMORY_SIG with type 'a t = mem = struct
+  
+  type 'a t = mem
 
-  let create num_lines line_size associativity =
+  let create ~(num_lines : int) ~(line_size : int) ~(associativity : int) =
     (* determin the number of set based on the number of lines and the associtivity *)
     let num_sets = match associativity with
       | 1 -> num_lines
